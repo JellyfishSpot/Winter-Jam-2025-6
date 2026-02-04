@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://ccwpjhtodxb4t"]
+[gd_scene load_steps=3 format=3 uid="uid://ccwpjhtodxb4t"]
+
+[ext_resource type="Texture2D" uid="uid://o1jd11arltk7" path="res://Assets/OJ Background.png" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://c8wfg12spwqww" path="res://Scenes/menu.gd" id="1_xhh6f"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -7,3 +10,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xhh6f")
+
+[node name="Menu BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_1rerr")
+
+[node name="Button Bar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start Game Button" type="Button" parent="Button Bar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+
+[node name="Options Button" type="Button" parent="Button Bar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 100.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options"
+
+[node name="Exit Game Button" type="Button" parent="Button Bar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 200.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit Game"
+
+[connection signal="pressed" from="Button Bar/Start Game Button" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="Button Bar/Exit Game Button" to="." method="_on_exit_game_button_pressed"]
